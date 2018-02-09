@@ -1,8 +1,7 @@
 
-public class RecursiveArrayFunctions {
+public class RecursiveFunctions {
 
-	/* Several recursive functions for use when
-	 * searching through arrays.
+	/* Several recursive functions, that cover a variety of uses, from search to calculation.
 	 */
 	
 	public static void main(String[] args) {
@@ -17,6 +16,10 @@ public class RecursiveArrayFunctions {
 		
 		// Output the largest integer in the list.
 		System.out.println(maxNum(1, numbers, numbers[0]));
+		System.out.println();
+		
+		// Passing in the first two numbers of the sequence, and the number of times to iterate.
+		fibonacci(0, 1, 10);
 	}
 	
 	// Adds each number in an array to each other recursively.
@@ -33,7 +36,16 @@ public class RecursiveArrayFunctions {
 	public static int maxNum(int index, int[] numbers, int maxNum) {
 		if(index == numbers.length)
 			return maxNum;
-		else
-			return numbers[index] > maxNum ? maxNum(index + 1, numbers, numbers[index]) :  maxNum(index + 1, numbers, maxNum);
+		
+		return numbers[index] > maxNum ? maxNum(index + 1, numbers, numbers[index]) :  maxNum(index + 1, numbers, maxNum);
 	}
+	
+	// Recursively calculates the Fibonacci sequence to a given number.
+	public static void fibonacci(int num1, int num2, int end) {
+		if(end > 0) {
+			System.out.println(num1 + num2);
+			fibonacci(num2, num1 + num2, --end);
+		}
+	}
+	
 }
